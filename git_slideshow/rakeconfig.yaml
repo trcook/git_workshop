@@ -1,0 +1,19 @@
+---
+excludes: ['.*readme.*','.*pandoc.*','.*README.*']
+header_includes_file: 'header_includes.tex'
+template: 'class_presentation.beamer'
+fontsize: 12
+draft: True
+
+date: 10-OCT 2015
+author: Thomas R. Cook
+title: Sample Latex Presentation Template
+maketitle: True
+setauthor: True
+biblatex: True
+bibliographyfiles: /s/dissandprojects.bib
+toc: True
+
+
+
+---

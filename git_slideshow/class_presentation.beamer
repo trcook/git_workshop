@@ -1,0 +1,282 @@
+\documentclass[$if(fontsize)$$fontsize$,$endif$$if(handout)$handout,$endif$$if(beamer)$ignorenonframetext,$endif$]{$documentclass$}
+$if(theme)$
+\usetheme{$theme$}
+$endif$
+$if(colortheme)$
+\usecolortheme{$colortheme$}
+$endif$
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{floatrow}
+\usepackage{wrapfig}
+\usepackage{multirow}
+\usepackage{colortbl}
+\usepackage{hyperref}
+\usepackage{bookmark}
+\hypersetup{% sets up hyperlink stuff
+pdfdisplaydoctitle=true%,
+pdfpagelayout={TwoColumnRight},
+pdfpagelabels=false,
+  colorlinks=false,
+  pdfborder={0 0 0},
+pdfinfo={
+Author={Thomas Cook}}
+}
+
+
+\usepackage{booktabs}%This package provide some additional commands to enhance the quality of tables in LaTeX. Guidelines are given as to what constitutes a good table in this context.
+
+
+\ifxetex
+  \usepackage{fontspec,xltxtra,xunicode}
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+\else
+  \ifluatex
+    \usepackage{fontspec}
+    \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \else
+    \usepackage[utf8]{inputenc}
+  \fi
+\fi
+$if(natbib)$
+\usepackage{natbib}
+\bibliographystyle{plainnat}
+$endif$
+$if(biblatex)$
+
+% \usepackage[natbib=true,style=authoryear-icomp,autocite=plain]{biblatex}
+
+% %the following will supress the word in: in article citations
+% \renewbibmacro{in:}{%
+%   \ifentrytype{article}{}{%
+%   \printtext{\bibstring{in}\intitlepunct}}}
+
+  % Set biblatex
+\usepackage[natbib=true,style=authoryear-comp,autocite=plain,backend=bibtex]{biblatex}
+
+%the following will supress the word in: in article citations
+\renewbibmacro{in:}{%
+  \ifentrytype{article}{}{%
+  \printtext{\bibstring{in}\intitlepunct}}}
+  
+
+% this sets up the footnote year citation:
+
+
+\renewcommand{\citep}{\footcite[][]}
+
+\renewcommand{\citet}[1]{\citeauthor{#1}\footyearcite{#1}}
+\DeclareCiteCommand{\footyearcite}[\mkbibfootnote]
+  {\usebibmacro{cite:init}%
+   \usebibmacro{prenote}}
+  {\usebibmacro{citeindex}%
+   \usebibmacro{citeyear}}
+  {}
+  {\usebibmacro{postnote}}
+
+$if(biblio-files)$
+%\bibliography{$biblio-files$}
+\addbibresource{$biblio-files$}
+$endif$
+$endif$
+$if(listings)$
+\usepackage{listings}
+$endif$
+$if(lhs)$
+\lstnewenvironment{code}{\lstset{language=Haskell,basicstyle=\small\ttfamily}}{}
+$endif$
+$if(highlighting-macros)$
+$highlighting-macros$
+$endif$
+$if(verbatim-in-note)$
+\usepackage{fancyvrb}
+$endif$
+$if(fancy-enums)$
+% Redefine labelwidth for lists; otherwise, the enumerate package will cause
+% markers to extend beyond the left margin.
+\makeatletter\AtBeginDocument{%
+  \renewcommand{\@listi}
+    {\setlength{\labelwidth}{4em}}
+}\makeatother
+\usepackage{enumerate}
+$endif$
+$if(tables)$
+\usepackage{ctable}
+\usepackage{float} % provides the H option for float placement
+$endif$
+$if(url)$
+\usepackage{url}
+$endif$
+$if(graphics)$
+\usepackage{graphicx}
+\makeatletter
+\def\ScaleIfNeeded{%
+  \ifdim\Gin@nat@width>\linewidth
+    .75\linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+\setkeys{Gin}{width=\ScaleIfNeeded}
+$endif$
+% Comment these out if you don't want a slide with just the
+% part/section/subsection/subsubsection title:
+%\AtBeginPart{\frame{\partpage}}
+%\AtBeginSection{\frame{\sectionpage}}
+%\AtBeginSubsection{\frame{\subsectionpage}}
+%\AtBeginSubsubsection{\frame{\subsubsectionpage}}
+\AtBeginSection{\subsection{}}
+
+$if(strikeout)$
+\usepackage[normalem]{ulem}
+% avoid problems with \sout in headers with hyperref:
+\pdfstringdefDisableCommands{\renewcommand{\sout}{}}
+$endif$
+$if(subscript)$
+\newcommand{\textsubscr}[1]{\ensuremath{_{\scriptsize\textrm{#1}}}}
+$endif$
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+$if(numbersections)$
+$else$
+\setcounter{secnumdepth}{0}
+$endif$
+$if(verbatim-in-note)$
+\VerbatimFootnotes % allows verbatim text in footnotes
+$endif$
+$if(lang)$
+\usepackage[$lang$]{babel}
+$endif$
+$for(header-includes)$
+$header-includes$
+$endfor$
+
+$if(title)$
+\title{$title$}
+$endif$
+$if(author)$
+\author{$for(author)$$author$$sep$ \and $endfor$}
+$endif$
+$if(date)$
+\date{$date$}
+$endif$
+
+\newcommand{\oo}[1]{#1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%  =........................+
+%  = MY CUSTOMIZATIONS: =====
+%  =........................+
+
+
+%  =..............................+
+%  = Fixing for row highlight =====
+%  =..............................+
+
+% Redefine `\rowcolor` to allow a beamer overlay specifier
+% New syntax: \rewcolor<overlay>[color model]{color}[left overhang][right overhang]
+\makeatletter
+% Open `\noalign` and check for overlay specification:
+\def\rowcolor{\noalign{\ifnum0=`}\fi\bmr@rowcolor}
+\newcommand<>{\bmr@rowcolor}{%
+    \alt#1%
+        {\global\let\CT@do@color\CT@@do@color\@ifnextchar[\CT@rowa\CT@rowb}% Rest of original `\rowcolor`
+        {\ifnum0=`{\fi}\@gooble@rowcolor}% End `\noalign` and gobble all arguments of `\rowcolor`.
+}
+% Gobble all normal arguments of `\rowcolor`:
+\newcommand{\@gooble@rowcolor}[2][]{\@gooble@rowcolor@}
+\newcommand{\@gooble@rowcolor@}[1][]{\@gooble@rowcolor@@}
+\newcommand{\@gooble@rowcolor@@}[1][]{\ignorespaces}
+\makeatother
+
+
+ \newcommand{\frameofframes}{/}
+ \newcommand{\setframeofframes}[1]{\renewcommand{\frameofframes}{#1}}
+
+ \setframeofframes{of}
+
+
+%  =.................................+
+%  = Fixing for date/pagenumbers =====
+%  =.................................+
+
+ \makeatletter
+ \setbeamertemplate{footline}
+   {%
+     \begin{beamercolorbox}[colsep=1.5pt]{upper separation line foot}
+     \end{beamercolorbox}
+     \begin{beamercolorbox}[ht=5ex,dp=1.125ex,%
+       leftskip=.3cm,rightskip=.3cm plus1fil]{title in head/foot} %author in head/foot       }%
+       \leavevmode{\usebeamerfont{author in head/foot}\insertshortauthor}%
+       \hfill%
+       {\usebeamerfont{institute in head/foot}\usebeamercolor[fg]{institute in head/foot}\insertdate %shortinstitute
+       }
+       \vspace{.1cm}\newline %
+       {\usebeamerfont{title in head/foot}\insertshorttitle}%
+        \hfill%
+        {\usebeamerfont{frame number}\usebeamercolor[fg]{frame number} Slide \insertframenumber}%~\frameofframes~\inserttotalframenumber}
+     \end{beamercolorbox}%
+     % \nointerlineskip% <-- INSERT THIS AS WELL
+     % \begin{beamercolorbox}[ht=2.5ex,dp=1.125ex,%
+     %   leftskip=.3cm,rightskip=.3cm plus1fil]{title in head/foot}%
+     %   {\usebeamerfont{title in head/foot}\insertshorttitle}%
+     %   \hfill%
+     %   {\usebeamerfont{frame number}\usebeamercolor[fg]{frame number}\insertframenumber%~\frameofframes~\inserttotalframenumber
+     %   }
+     % \end{beamercolorbox}%
+     \begin{beamercolorbox}[colsep=.5pt]{lower separation line foot}
+     \end{beamercolorbox}
+   }
+ \makeatother
+ 
+
+\usepackage{sfgame} % sets up to use game
+ \setbeamercovered{invisible} % sets semi-visibility for covered items
+
+\usepackage{ctable} %use for some tables, esp appendix a and for tables in analysis. Is needed for footnotes in tables. Must be loaded last to work in latex 2014
+
+\setbeamertemplate{navigation symbols}{}
+
+\begin{document}
+
+$if(title)$
+\frame{\titlepage}
+$endif$
+%\frame{\tableofcontents}
+$for(include-before)$
+$include-before$
+
+$endfor$
+$if(toc)$
+\begin{frame}
+\tableofcontents[hideallsubsections]
+\end{frame}
+
+$endif$
+$body$
+
+$if(natbib)$
+$if(biblio-files)$
+$if(biblio-title)$
+$if(book-class)$
+\renewcommand\bibname{$biblio-title$}
+$else$
+\renewcommand\refname{$biblio-title$}
+$endif$
+$endif$
+% \bibliography{$biblio-files$}
+
+$endif$
+$endif$
+$if(biblatex)$
+%\printbibliography$if(biblio-title)$[title=$biblio-title$]$endif$
+\printbibliography
+$endif$
+$for(include-after)$
+$include-after$
+
+$endfor$
+\end{document}
