@@ -1,11 +1,8 @@
 require(foreign)
 
-# convenience function to print out length of object
-len=function(x){print(length(x))}
+m=if(Sys.info()[['sysname']]=="Linux"){0}else{1}
 
-x<-runif(100,0,1)
-y<-rnorm(100,x,1)
-z<-rnorm(100,x+y,1)
+x<-runif(100,0,1);y<-rnorm(100,x,1);z<-rnorm(100,x+y,1)
 
 ### Some other stuff
 
@@ -18,3 +15,6 @@ summary(glm(as.factor(party)~fed_need+openness,family=binomial,data=dat))
 
 # some other part of a project
 len(x+y+z)
+
+
+quit(save='no',status=m)
