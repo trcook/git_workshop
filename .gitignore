@@ -2,3 +2,4 @@
 Git Presentation.tex
 *.tex
 git_slideshow/figures/*.pdf
+.Rapp.history
