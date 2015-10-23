@@ -242,8 +242,23 @@
 ## Docker, Images Containers
 >* Docker is a software platform (like Git)
 * Image $\approx$ defined computing environment (minimum: an os)
+    * Static
 * Container: an instantiation of an Image
+    * ephemeral, dynamic
 * Docker Runs Containers from Images
+* Analogy: USB drive
+
+## Dockerfiles
+* Images are built from Dockerfiles
+* Dockerfiles = base image (e.g. an os) + additional setup commands
+* Example setup commands:
+    * Add a directory or file to the image
+    * install R
+* Easy to build on prior images
+    * Just pick image and specify it as base
+
+## Basic workflow:
+* Write dockerfile $\righarrow$ Build image $\righarrow$ run containers
 
 
 <!--File must begin/end on empty line!!  -->
