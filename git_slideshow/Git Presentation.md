@@ -145,17 +145,25 @@
     * Pull
 
 ## Where to get help
-    * Easy help
+* Easy help
     * Lots of places
     * Stackoverflow.com
+    * Google
+    * [Github youtube channel](https://www.youtube.com/user/GitHubGuides?&ab_channel=GitHubTraining&Guides)
     * Sourcetree help
+* Punching deck and interactive learning:
+    * [try.github.io](try.github.io)
+    * [www.codeschool.com/courses/git-real](https://www.codeschool.com/courses/git-real)
+    * [A great course at lynda.com www.lynda.com/Git-tutorials/Git-Essential-Training/100222-2.html](http://www.lynda.com/Git-tutorials/Git-Essential-Training/100222-2.html)
+* Deep Dive
+    * [pro-git book by Scott Chacon and Ben Straub. -- Free online http://git-scm.com/book/en/v2](http://git-scm.com/book/en/v2)
 
 # Caveats
 
 ## Things Git is bad at
 
 * Tracking binary files -- word files, images, etc. It will track them, but it's not ideal
-*
+
 
 ## Merge Conflicts
 * Git is good at fixing conflicts
