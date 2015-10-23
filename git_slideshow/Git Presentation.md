@@ -130,6 +130,7 @@
 \end{pass}
 
 ## Other things Git does
+
 * Roll-back to previous versions
 * Branch development/management
 * Integration in to lots of software
@@ -138,6 +139,7 @@
 # Using Git
 
 ## Today
+
 * Sourcetree
     * Setup Repo
     * Clone Repo
@@ -146,6 +148,7 @@
     * Pull
 
 ## Where to get help
+
 * Easy help
     * Lots of places
     * Stackoverflow.com
@@ -162,6 +165,7 @@
 # Caveats
 
 ## Like Latex and R
+
 * Totally Awesome
 * Street Cred
 * Learning Curve
@@ -174,6 +178,7 @@
     * Not much benefit from tracking binary anyway
 
 ## Merge Conflicts
+
 * Git is good at fixing conflicts
 * When it can't you need to fix merge conflicts
 * Diff, resolve using 'mine'/'theirs'
@@ -184,7 +189,9 @@
 
 
 # Bonus Git Stuff:
+
 ## What else can Git Do
+
 * It works with rstudio
 * Packages for atom and sublime
 * You can use it to power a website
@@ -196,12 +203,14 @@
 
 
 ## Two parts to a reproducible analysis: Blueprint and Machine
+
 * Blueprint = code
     * Git helps with this
 * Machine = computer (the software that runs the code)
     * Docker helps with this
 
 ## The machine problem -- more detail:
+
 * Software versions change over time
     * R versions change
     * R packages change
@@ -213,6 +222,7 @@
 # What is Docker?
 
 ## That's actually sort of a hard question to answer
+
 * Virtualization software, but not totally
 * But sort of if on pc/mac (needs to run in vbox -- but still snappy)
 * Upshot: Docker makes sure our code runs the same way every time, on any machine (with docker)
@@ -226,6 +236,7 @@
     * Sharable (dockerhub)
 
 # Using Docker - Why/how
+
 ## Use Cases (greater detail)
 
 * Code critically depends on a package that is prone to changes
@@ -236,10 +247,12 @@
 * Cloud-based HPC (let's talk if you're doing that)
 
 ## At the moment...
+
 * Docker is easy to use, but requires terminal/shell commands primarily
     * Kitematic is limited gui -- can use to pull/run images, not make them
 
 ## Docker, Images Containers
+
 >* Docker is a software platform (like Git)
 * Image $\approx$ defined computing environment (minimum: an os)
     * Static
@@ -249,6 +262,7 @@
 * Analogy: USB drive
 
 ## Dockerfiles
+
 * Images are built from Dockerfiles
 * Dockerfiles = base image (e.g. an os) + additional setup commands
 * Example setup commands:
@@ -258,6 +272,7 @@
     * Just pick image and specify it as base
 
 # Basic Docker Usage Example
+
 ## Basic workflow:
 * Write dockerfile $\righarrow$ Build image $\righarrow$ run containers
 
@@ -278,8 +293,52 @@ ENTRYPOINT ["R","--no-save"]
     3. Tell Docker to build: `docker build -t trcook/workshop_test .`
         * the `-t .../...` tells docker what to call the image internally. First part is username, don't use trcook -- that's my name
         * the `.` at the end tells docker to look for `Dockerfile` in the current directory
-##
 
+## Run docker from Image
+* In terminal:
+    * `docker run -it --rm trcook/workshop_test`
+    * `-it` tells docker we want to interact with the container
+    * `--rm` tells docker to remove the container after we are done (delete from memory) -- Image will still remain
 
+## Expanded usage
+* Can use this basic process for any project to create long-term reproduction image
+* Caveat: will need to install required R packages through the Dockerfile
 
+## Install R packages:
+```
+FROM r-base
+RUN Rscript -e "install.packages('pkg.name')"
+RUN Rscript -e "m<-c('pkg1','pkg2','pkg3');install.packages(m)"
+VOLUME /data
+ADD ["data", "/data"]
+ENTRYPOINT ["R","--no-save"]
+```
+Copy RUN for each package
+
+## Alternative 1:
+```
+FROM r-base
+RUN Rscript -e "install.packages('pkg.name')"
+RUN Rscript -e "m<-c('pkg1','pkg2','pkg3');install.packages(m)"
+VOLUME /data
+ADD ["data", "/data"]
+ENTRYPOINT ["R","--no-save"]
+```
+Store packages in m
+
+## Alternative 2:
+rsetup.R
+```
+m<-c('pkg1','pkg2')
+install.packages(m)
+```
+```
+FROM r-base
+ADD ["rsetup.R", "/rsetup.R"]
+RUN Rscript /rsetup.R
+VOLUME /data
+ADD ["data", "/data"]
+ENTRYPOINT ["R","--no-save"]
+```
+Add and run seperate R-setup file
 <!--File must begin/end on empty line!!  -->
