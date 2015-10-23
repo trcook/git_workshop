@@ -15,3 +15,6 @@ dat<-dat[-which(dat$State=="District of Columbia"),]
 dat
 summary(glm(as.factor(party)~fed_need+openness,family=binomial,data=dat))
 # Looks right to me
+
+# some other part of a project
+len(x+y+z)
