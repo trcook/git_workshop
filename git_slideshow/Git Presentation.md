@@ -24,6 +24,7 @@
 \begin{pass}
 \begin{center}
 \includegraphics<2->[width=.25\framewidth]{figures/homer-doh.png}
+
 \end{center}
 \begin{itemize}
 \item<3> Make R script, DO file or other script that generates data from pristine data files.
@@ -92,11 +93,11 @@
 \end{itemize}
 \end{itemize}}
 \begin{center}
-\includegraphics<2>[height=.75\paperheight]{figures/commit1.pdf}
-\includegraphics<3>[height=.75\paperheight]{figures/commit2.pdf}
-\includegraphics<4>[height=.75\paperheight]{figures/commit3.pdf}
-\includegraphics<6>[height=.75\paperheight]{figures/commit4.pdf}
-\includegraphics<7>[height=.75\paperheight]{figures/commit5.pdf}
+\includegraphics<2>[height=.75\paperheight]{figures/commit1.eps}
+\includegraphics<3>[height=.75\paperheight]{figures/commit2.eps}
+\includegraphics<4>[height=.75\paperheight]{figures/commit3.eps}
+\includegraphics<6>[height=.75\paperheight]{figures/commit4.eps}
+\includegraphics<7>[height=.75\paperheight]{figures/commit5.eps}
 \end{center}
 
 \end{pass}
@@ -117,14 +118,14 @@
 \end{itemize}
 }
 \begin{center}
-\includegraphics<2>[height=.70\paperheight]{./figures/dropbox1.pdf}
-\includegraphics<3>[height=.70\paperheight]{./figures/dropbox2.pdf}
-\includegraphics<4>[height=.70\paperheight]{./figures/dropbox3.pdf}
-\includegraphics<5>[height=.70\paperheight]{./figures/dropbox4.pdf}
-\includegraphics<7>[height=.75\paperheight]{./figures/github1.pdf}
-\includegraphics<8>[height=.75\paperheight]{./figures/github2.pdf}
-\includegraphics<9>[height=.75\paperheight]{./figures/github3.pdf}
-\includegraphics<10>[height=.75\paperheight]{./figures/github4.pdf}
+\includegraphics<2>[height=.70\paperheight]{./figures/dropbox1.eps}
+\includegraphics<3>[height=.70\paperheight]{./figures/dropbox2.eps}
+\includegraphics<4>[height=.70\paperheight]{./figures/dropbox3.eps}
+\includegraphics<5>[height=.70\paperheight]{./figures/dropbox4.eps}
+\includegraphics<7>[height=.75\paperheight]{./figures/github1.eps}
+\includegraphics<8>[height=.75\paperheight]{./figures/github2.eps}
+\includegraphics<9>[height=.75\paperheight]{./figures/github3.eps}
+\includegraphics<10>[height=.75\paperheight]{./figures/github4.eps}
 \end{center}
 \end{pass}
 
