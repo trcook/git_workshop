@@ -154,6 +154,12 @@
 
 ## Things Git is bad at
 
+* Tracking binary files -- word files, images, etc. It will track them, but it's not ideal
+*
+
 ## Merge Conflicts
+* Git is good at fixing conflicts
+* When it can't you need to fix them
+* Diff, resolve using 'mine'/'theirs'
 
 <!--File must begin/end on empty line!!  -->
