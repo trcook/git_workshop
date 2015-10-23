@@ -170,4 +170,16 @@
 * When it can't you need to fix them
 * Diff, resolve using 'mine'/'theirs'
 
+\appendix
+
+# Replication environments
+## Problem:
+* Software versions change over time
+
+# What is Docker?
+
+## That's actually sort of a hard question to answer
+* Virtualization software, but not totally
+* But totally if on pc/mac
+
 <!--File must begin/end on empty line!!  -->
