@@ -9,32 +9,33 @@
   * Get novel data file
       * Make some changes to it
       * Save over original file
-\pass{\center\includegraphics<2>[width=.25\framewidth]{HomerSimpson5.pdf}}
+\pass{\center\includegraphics<2>[width=.25\framewidth]{figures/HomerSimpson5.pdf}}
 
 
 
 ## Six months later...
 
 * Return to project...
-    * what does `log_inerv_1234.b` mean? How did I it? Why is it driving my results?
+    * What does `log_inerv_1234.b` mean? How did I get it? Why is it driving my results?
 * Even worse if someone asks for your replication data
-    * you need to be able to explain how you arrived at a given variable/model/etc
+    * You need to be able to explain how you arrived at a given variable/model/etc
+* Moar worse if your co-author created `log_inerv_1234.b`
 
 \begin{pass}
 \begin{center}
-\includegraphics<2->[width=.25\framewidth]{homer-doh.png}
+\includegraphics<2->[width=.25\framewidth]{figures/homer-doh.png}
 \end{center}
 \begin{itemize}
 \item<3> Make R script, DO file or other script that generates data from pristine data files.
 \end{itemize}
 \end{pass}
 
-## Three challenges with managing data
+## Two big challenges with managing data
 
-1. Long-term reproducability
-3. Version management
+1. Track file changes over tiem
+    * Long-term reproducibility
+    * Version management
 2. Collaboration with others
-
 
 ## Common Solutions:
 
@@ -49,77 +50,110 @@
 
 ### But what about these other nightmare scenarios:
 
-* Someone asks for old version of replication data
+>* Someone asks for old version of replication data
 * Coauthor deletes files in his/her dropbox folder
 * You and co-author try to work on data at the same time (the dreaded `conflited copy`)
 * Need to identify how project today differs from version 6 months ago
 * Need to identify prior/abandoned approaches to analysis
 * The list goes on...
+>* Git can help resolve all of these
 
-\pass{
-  \begin{itemize}
-  \item<2> Git can help resolve all of these
-  \end{itemize}
+
+
+# What is Git?
+
+## Git is...
+
+>* Distributed Version Control System
+    * Distributed $\rightarrow$ decentralized, many users
+    * Version Control $\rightarrow$ track changes, enable rollbacks,
+    * System $\rightarrow$ System
+>* Think: "Track changes" on steroids
+
+
+
+## Repos
+
+* Git tracks sets of files -- multiple files at once
+* Folder with set of files tracked by Git: Repository
+    * Generally, a Git repo looks and works just like a folder
+* Think: Repo $\righarrow$ project
+
+## Commits
+
+
+\begin{pass}
+\only<1,5,8>{\begin{itemize}
+\item A snapshot of (specified) files tracked by Git
+\begin{itemize}
+\item <1,5>Captures \emph{changes} in specified files (since last commit)
+\item <5> Captures Files Added/Removed/Moved
+\item <8> Upshot: Can track file changes very closely over time
+\end{itemize}
+\end{itemize}}
+\begin{center}
+\includegraphics<2>[height=.75\paperheight]{figures/commit1.pdf}
+\includegraphics<3>[height=.75\paperheight]{figures/commit2.pdf}
+\includegraphics<4>[height=.75\paperheight]{figures/commit3.pdf}
+\includegraphics<6>[height=.75\paperheight]{figures/commit4.pdf}
+\includegraphics<7>[height=.75\paperheight]{figures/commit5.pdf}
+\end{center}
+
+\end{pass}
+
+## Distribution/Collaboration
+
+\begin{pass}
+\only<1,6>{
+\begin{itemize}
+    \item <1,6>Git enables Collaboration -- it is a distributed system.
+    \begin{itemize}
+        \item <1>Contrast to Dropbox
+        \item <6>Download repo to local computer
+        \item <6>Make changes and commit
+        \item <6>Push changes to server when ready
+        \item <6>Pull changes from server when ready
+    \end{itemize}
+\end{itemize}
 }
+\begin{center}
+\includegraphics<2>[height=.70\paperheight]{./figures/dropbox1.pdf}
+\includegraphics<3>[height=.70\paperheight]{./figures/dropbox2.pdf}
+\includegraphics<4>[height=.70\paperheight]{./figures/dropbox3.pdf}
+\includegraphics<5>[height=.70\paperheight]{./figures/dropbox4.pdf}
+\includegraphics<7>[height=.75\paperheight]{./figures/github1.pdf}
+\includegraphics<8>[height=.75\paperheight]{./figures/github2.pdf}
+\includegraphics<9>[height=.75\paperheight]{./figures/github3.pdf}
+\includegraphics<10>[height=.75\paperheight]{./figures/github4.pdf}
+\end{center}
+\end{pass}
 
+## Other things Git does
+* Roll-back to previous versions
+* Branch development/management
+* Integration in to lots of software
+* Best way to explore: start using git
 
----
+# Using Git
 
-Partial Solution:
+## Today
+* Sourcetree
+    * Setup Repo
+    * Clone Repo
+    * Checkout
+    * Commit
+    * Pull
 
-* Make R script, DO file or other script that generates data from pristine data files.
-  * Ultimately, script should be parsimonious, simple:
+## Where to get help
+    * Easy help
+    * Lots of places
+    * Stackoverflow.com
+    * Sourcetree help
 
+# Caveats
 
-```
-# -- building script. R --
-# loading the file
-x<-load('pristine_data/file.Rds')
-# We need to log variable 2:
-x$var2_logged<-log(x$var2)
-final_model<-lm(var1~var2_logged,data=x)
-# analysis over
-```
----
+## Things Git is bad at
 
-Usually script looks more like this:
-
-\fontsize{9}{10}\selectfont
-
-```
-# -- building script. R --
-# loading the file
-y<-load(barfoo.Rds)
-# Hurry! Regress something:
-require(earth)
-momo1<-earth(y$var1~var2+6,data=y, weights=c(1:99-3)) # This will probably work
-summary(momo1)
-vcov(momo1)
-# It didn't work. Hurry! do some other stuff:
-apply(y,2,function(x){apply(x,2,sum))})
-# Nothing is working!
-print("nothing is working!")
-
-# Ok, trying different datasource:
-x<-load('pristine_data/file.Rds')
-# We need to log variable 2:
-x$var2_logged<-log(x$var2)
-final_model<-lm(var1~var2_logged,data=x)
-# analysis over
-```
-
----
-
-* We'd like to keep the simplified, ultimate file
-* Should also keep record of prior attempts or prior routes of analysis taken
-* Track changes over time
-
-
-
-
-
-
-
-
+## Merge Conflicts
 
 <!--File must begin/end on empty line!!  -->
