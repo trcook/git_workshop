@@ -341,4 +341,35 @@ ADD ["data", "/data"]
 ENTRYPOINT ["R","--no-save"]
 ```
 Add and run seperate R-setup file
+
+
+
+# Docker Sharing
+
+## Push Images to Dockerhub
+
+* hub.docker.com
+    * repository for docker images -- like github
+    * `docker push trcook/workshop_test`
+        * Requires you setup hub.docker.com acct first
+    * Probably faster to run automated build
+
+## Automated Builds
+* Docker and git play nice together
+    * From hub.docker.com, point new build at git directory
+    * Will build every time with push
+    * Alternatively, will build once and stay static
+
+# Get help
+
+## Basics
+* docs.docker.com
+* [A pretty good videofrom Learncode.academy](https://youtu.be/pGYAg7TMmp0)
+* Again -- stack overflow is helpful here
+* Me
+
+---
+
+* \pass{The end\only<2>{?}}
+
 <!--File must begin/end on empty line!!  -->
