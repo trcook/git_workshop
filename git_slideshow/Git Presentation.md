@@ -168,8 +168,19 @@
 
 ## Merge Conflicts
 * Git is good at fixing conflicts
-* When it can't you need to fix them
+* When it can't you need to fix merge conflicts
 * Diff, resolve using 'mine'/'theirs'
+    * Remember in Sourcetree: HEAD = 'mine'
+    * External diff tools can help you cherry pick what to keep in a diff-merge
+    * [Meld](http://meldmerge.org) on Windows(?)
+    * On OS X, file-merge is included with xcode
+
+
+# Bonus Git Stuff:
+## What else can Git Do
+* It works with rstudio
+* Packages for atom and sublime
+* You can use it to power a website
 
 \appendix
 
@@ -181,6 +192,7 @@
 
 ## That's actually sort of a hard question to answer
 * Virtualization software, but not totally
-* But totally if on pc/mac
+* But sort of if on pc/mac (needs to run in vbox -- but still snappy)
+
 
 <!--File must begin/end on empty line!!  -->
