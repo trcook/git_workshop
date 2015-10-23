@@ -43,12 +43,12 @@ SCRIPT_TO_RUN =<<EOS
 Rscript -e 'require(knitr);options("revealout"="n");render_markdown();opts_chunk$set(dev = "pdf",fig.ext="pdf",eval=TRUE,echo=FALSE,message=FALSE,warning=FALSE,error=FALSE);knit("@input_file", output="@output_file")'
 EOS
 
-KNIT_TO_RUN =<<EOS
-pandoc "@input_file" "rakeconfig.yaml" --from markdown+autolink_bare_uris+ascii_identifiers+tex_math_single_backslash-implicit_figures  -t beamer --slide-level=2  -o "@output_file" -V theme:Amsterdam -s --biblatex --bibliography="/s/dissandprojects.bib" --template=class_presentation.beamer  --toc --include-in-header=#{$config['header_includes_file']}
-EOS
+# KNIT_TO_RUN =<<EOS
+# pandoc "@input_file" "rakeconfig.yaml" --from markdown+autolink_bare_uris+ascii_identifiers+tex_math_single_backslash-implicit_figures --filter beamer_overlay_filter.py -t beamer --slide-level=2  -o "@output_file" -V theme:Amsterdam -s --biblatex --bibliography="/s/dissandprojects.bib" --template=class_presentation.beamer  --toc --include-in-header=#{$config['header_includes_file']}
+# EOS
 
 KNIT_TO_RUN =<<EOS
-pandoc "@input_file" "rakeconfig.yaml" --from markdown+autolink_bare_uris+ascii_identifiers+tex_math_single_backslash-implicit_figures  -t beamer --slide-level=2  -o "@output_file" -V theme:Amsterdam -s   --template=class_presentation.beamer   --include-in-header=#{$config['header_includes_file']} 
+pandoc "@input_file" "rakeconfig.yaml" --from markdown+autolink_bare_uris+ascii_identifiers+tex_math_single_backslash-implicit_figures --filter beamer_overlay_filter.py  -t beamer --slide-level=2  -o "@output_file" -V theme:Amsterdam -s   --template=class_presentation.beamer   --include-in-header=#{$config['header_includes_file']}
 EOS
 
 my_rmd_files=FileList[Dir.glob("./*.rmd", File::FNM_CASEFOLD)]
@@ -108,7 +108,7 @@ define_method(:proc_and_move) do |t,*args|
   CLEAN.include(FileList[Dir.glob("*").find_all { |j| $clean_str1=~j }])
   # noinspection RubyResolve
   CLEAN.include(FileList[Dir.glob("*").find_all { |j| $clean_str2 =~j }])
-  CLEAN.include(FileList[t.name.ext(".tex")])
+  # CLEAN.include(FileList[t.name.ext(".tex")])
   return
 end
 
