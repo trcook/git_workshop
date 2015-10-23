@@ -161,10 +161,17 @@
 
 # Caveats
 
+## Like Latex and R
+* Totally Awesome
+* Street Cred
+* Learning Curve
+    * Gets really fast/easy to use as time goes on
+
 ## Things Git is bad at
 
 * Tracking binary files -- word files, images, etc. It will track them, but it's not ideal
-
+    * This would be good use for Dropbox or something else
+    * Not much benefit from tracking binary anyway
 
 ## Merge Conflicts
 * Git is good at fixing conflicts
@@ -185,14 +192,58 @@
 \appendix
 
 # Replication environments
-## Problem:
+
+
+
+## Two parts to a reproducible analysis: Blueprint and Machine
+* Blueprint = code
+    * Git helps with this
+* Machine = computer (the software that runs the code)
+    * Docker helps with this
+
+## The machine problem -- more detail:
 * Software versions change over time
+    * R versions change
+    * R packages change
+    * Python, Ruby etc. Change even moreso
+* Not every machine has the same configuration
+    * Mac/Windows compatability problems -- more common than you expect
+        * ex. parallelized code
 
 # What is Docker?
 
 ## That's actually sort of a hard question to answer
 * Virtualization software, but not totally
 * But sort of if on pc/mac (needs to run in vbox -- but still snappy)
+* Upshot: Docker makes sure our code runs the same way every time, on any machine (with docker)
+
+## For Our Purposes
+
+
+* Like Git for the computing machinery
+    * Stable, consistent
+    * Trackable over time
+    * Sharable (dockerhub)
+
+# Using Docker - Why/how
+## Use Cases (greater detail)
+
+* Code critically depends on a package that is prone to changes
+    * ggplot2 is a good example
+* You use packages/etc that your co-author doesn't use
+    * ex. python packages if you're scraping web
+* You are developing package/software and you want to provide a demo environment
+* Cloud-based HPC (let's talk if you're doing that)
+
+## At the moment...
+* Docker is easy to use, but requires terminal/shell commands primarily
+    * Kitematic is limited gui -- can use to pull/run images, not make them
+
+## Docker, Images Containers
+>* Docker is a software platform (like Git)
+* Image $\approx$ defined computing environment (minimum: an os)
+* Container: an instantiation of an Image
+* Docker Runs Containers from Images
 
 
 <!--File must begin/end on empty line!!  -->
