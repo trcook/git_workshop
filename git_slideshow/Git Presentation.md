@@ -257,8 +257,29 @@
 * Easy to build on prior images
     * Just pick image and specify it as base
 
+# Basic Docker Usage Example
 ## Basic workflow:
 * Write dockerfile $\righarrow$ Build image $\righarrow$ run containers
+
+## Basic Dockerfile
+* Title these `Dockerfile` with no extension
+```
+FROM r-base
+VOLUME /data
+ADD ["data", "/data"]
+ENTRYPOINT ["R","--no-save"]
+```
+* [Full doc: https://docs.docker.com/reference/builder](https://docs.docker.com/reference/builder)
+
+## Build Dockerfile To Image
+* In terminal (in folder with Dockerfile):
+    1. make sure docker machine is running: `docker-machine start default`
+    2. make sure we are setup to use docker:`eval $(docker-machine env default)`
+    3. Tell Docker to build: `docker build -t trcook/workshop_test .`
+        * the `-t .../...` tells docker what to call the image internally. First part is username, don't use trcook -- that's my name
+        * the `.` at the end tells docker to look for `Dockerfile` in the current directory
+##
+
 
 
 <!--File must begin/end on empty line!!  -->
