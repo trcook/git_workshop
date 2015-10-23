@@ -48,7 +48,7 @@ EOS
 # EOS
 
 KNIT_TO_RUN =<<EOS
-pandoc "@input_file" "rakeconfig.yaml" --from markdown+autolink_bare_uris+ascii_identifiers+tex_math_single_backslash-implicit_figures --filter beamer_overlay_filter.py  -t beamer --slide-level=2  -o "@output_file" -V theme:Amsterdam -s   --template=class_presentation.beamer   --include-in-header=#{$config['header_includes_file']}
+pandoc "@input_file" "rakeconfig.yaml" --from markdown+autolink_bare_uris+ascii_identifiers+tex_math_single_backslash-implicit_figures --filter .beamer_overlay_filter.py  -t beamer --slide-level=2  -o "@output_file" -V theme:Amsterdam -s   --template=class_presentation.beamer   --include-in-header=#{$config['header_includes_file']}
 EOS
 
 my_rmd_files=FileList[Dir.glob("./*.rmd", File::FNM_CASEFOLD)]
