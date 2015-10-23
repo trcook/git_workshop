@@ -1,3 +1,4 @@
 .build-tools.cson
 Git Presentation.tex
 tmp.tex
+git_slideshow/figures/*.pdf

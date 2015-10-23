@@ -26,7 +26,7 @@
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2015-10-23 07:11:54 +0000</string>
+	<string>2015-10-23 14:18:24 +0000</string>
 	<key>Modifier</key>
 	<string>Thomas Cook</string>
 	<key>NotesVisible</key>
@@ -5128,8 +5128,8 @@ added file}</string>
 					<integer>0</integer>
 					<key>Points</key>
 					<array>
-						<string>{334, 264.00001568030552}</string>
-						<string>{397.5, 264.00001568030552}</string>
+						<string>{334, 265.00001568030552}</string>
+						<string>{397.5, 265.00001568030552}</string>
 					</array>
 					<key>Style</key>
 					<dict>
@@ -5165,8 +5165,8 @@ added file}</string>
 					<integer>0</integer>
 					<key>Points</key>
 					<array>
-						<string>{172.5, 264.00000772651987}</string>
-						<string>{242, 264.00000772651987}</string>
+						<string>{172.5, 264.97797497335819}</string>
+						<string>{242, 264.92330571080078}</string>
 					</array>
 					<key>Style</key>
 					<dict>
@@ -5190,7 +5190,7 @@ added file}</string>
 				</dict>
 				<dict>
 					<key>Bounds</key>
-					<string>{{242, 257}, {92, 14}}</string>
+					<string>{{242, 258}, {92, 14}}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>FitText</key>
@@ -5240,7 +5240,7 @@ added file}</string>
 				</dict>
 				<dict>
 					<key>Bounds</key>
-					<string>{{397.5, 257}, {56, 14}}</string>
+					<string>{{397.5, 258}, {56, 14}}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>FitText</key>
@@ -5302,8 +5302,8 @@ added file}</string>
 					<integer>0</integer>
 					<key>Points</key>
 					<array>
-						<string>{327.92282455806634, 170}</string>
-						<string>{387.60543096810494, 244}</string>
+						<string>{327.95510462148815, 171}</string>
+						<string>{387.68596809603605, 245}</string>
 					</array>
 					<key>Style</key>
 					<dict>
@@ -5339,8 +5339,8 @@ added file}</string>
 					<integer>0</integer>
 					<key>Points</key>
 					<array>
-						<string>{246.33245582954353, 170}</string>
-						<string>{184.04158171613386, 244}</string>
+						<string>{246.30139830574717, 171}</string>
+						<string>{183.96409476282372, 245}</string>
 					</array>
 					<key>Style</key>
 					<dict>
@@ -5364,7 +5364,7 @@ added file}</string>
 				</dict>
 				<dict>
 					<key>Bounds</key>
-					<string>{{116.5, 257}, {56, 14}}</string>
+					<string>{{116.5, 258}, {56, 14}}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>FitText</key>
@@ -5414,7 +5414,7 @@ added file}</string>
 				</dict>
 				<dict>
 					<key>Bounds</key>
-					<string>{{240, 71}, {96, 99}}</string>
+					<string>{{240, 72}, {96, 99}}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>FitText</key>
@@ -5473,7 +5473,7 @@ added file}</string>
 				</dict>
 				<dict>
 					<key>Bounds</key>
-					<string>{{23, 244}, {243, 94}}</string>
+					<string>{{23, 245}, {243, 94}}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>ID</key>
@@ -5727,7 +5727,7 @@ added file}</string>
 				</dict>
 				<dict>
 					<key>Bounds</key>
-					<string>{{304, 244}, {243, 94}}</string>
+					<string>{{304, 245}, {243, 94}}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>ID</key>
@@ -5768,7 +5768,7 @@ added file}</string>
 				</dict>
 				<dict>
 					<key>Bounds</key>
-					<string>{{102.5, 10}, {371, 94}}</string>
+					<string>{{102.5, 11}, {371, 94}}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>FontInfo</key>
@@ -8442,7 +8442,7 @@ changes 1}</string>
 					<key>Print</key>
 					<string>YES</string>
 					<key>View</key>
-					<string>YES</string>
+					<string>NO</string>
 				</dict>
 				<dict>
 					<key>Lock</key>
@@ -8535,7 +8535,7 @@ changes 1}</string>
 	<key>WindowInfo</key>
 	<dict>
 		<key>CurrentSheet</key>
-		<integer>8</integer>
+		<integer>1</integer>
 		<key>ExpandedCanvases</key>
 		<array>
 			<dict>
@@ -8544,11 +8544,15 @@ changes 1}</string>
 			</dict>
 			<dict>
 				<key>name</key>
+				<string>Canvas 7</string>
+			</dict>
+			<dict>
+				<key>name</key>
 				<string>Canvas 6</string>
 			</dict>
 		</array>
 		<key>Frame</key>
-		<string>{{647, 119}, {1061, 898}}</string>
+		<string>{{8, 173}, {1061, 877}}</string>
 		<key>ListView</key>
 		<true/>
 		<key>OutlineWidth</key>
@@ -8562,7 +8566,7 @@ changes 1}</string>
 		<key>SidebarWidth</key>
 		<integer>120</integer>
 		<key>VisibleRegion</key>
-		<string>{{-175, -11}, {926, 756}}</string>
+		<string>{{-175, -1}, {926, 735}}</string>
 		<key>Zoom</key>
 		<real>1</real>
 		<key>ZoomValues</key>
