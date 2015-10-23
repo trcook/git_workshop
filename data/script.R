@@ -28,3 +28,5 @@ length(which(duplicated(dat$State)))
 levels(dat$State)
 # Oh, washington isn't a state
 len(setdiff(dat$State,"District of Columbia"))
+
+dat<-dat[-which(dat$State=="District of Columbia"),1]
