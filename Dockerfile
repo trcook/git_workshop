@@ -3,4 +3,5 @@
 FROM r-base
 VOLUME /data
 ADD data /data
+WORKDIR /data
 ENTRYPOINT ["R", "--no-save"]
