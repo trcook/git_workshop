@@ -1,5 +1,6 @@
 require(foreign)
 
+len=function(x){print(length(x))}
 m=if(Sys.info()[['sysname']]=="Linux"){0}else{1}
 
 x<-runif(100,0,1);y<-rnorm(100,x,1);z<-rnorm(100,x+y,1)
