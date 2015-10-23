@@ -1,18 +1,7 @@
 
 <!--File must begin/end on empty line!!  -->
 
-# Problems
-
-## Three challenges with managing data
-
-1. Long-term reproducability
-3. Version management
-2. Collaboration with others
-
-
-- Let's talk about some common scenarios
-
-
+# Problems and Caution
 
 ## Long-term reproducability and Mysterious Data:
 
@@ -30,14 +19,49 @@
     * what does `log_inerv_1234.b` mean? How did I it? Why is it driving my results?
 * Even worse if someone asks for your replication data
     * you need to be able to explain how you arrived at a given variable/model/etc
-\pass{\center\includegraphics<2>[width=.25\framewidth]{homer-doh.png}}
 
----
+\begin{pass}
+\begin{center}
+\includegraphics<2->[width=.25\framewidth]{homer-doh.png}
+\end{center}
+\begin{itemize}
+\item<3> Make R script, DO file or other script that generates data from pristine data files.
+\end{itemize}
+\end{pass}
 
-### Partial Solution:
+## Three challenges with managing data
 
-* Make R script, DO file or other script that generates data from pristine data files.
-  * Ultimately, script should be parsimonious, simple:
+1. Long-term reproducability
+3. Version management
+2. Collaboration with others
+
+
+## Common Solutions:
+
+5. Edit data in-place (!)
+1. Dropbox
+2. Track Changes/time-machine
+3. Email
+4. New folder per version
+
+
+## That's a start...
+
+### But what about these other nightmare scenarios:
+
+* Someone asks for old version of replication data
+* Coauthor deletes files in his/her dropbox folder
+* You and co-author try to work on data at the same time (the dreaded `conflited copy`)
+* Need to identify how project today differs from version 6 months ago
+* Need to identify prior/abandoned approaches to analysis
+* The list goes on...
+
+\pass{
+  \begin{itemize}
+  \item<2> Git can help resolve all of these
+  \end{itemize}
+}
+
 
 ---
 
